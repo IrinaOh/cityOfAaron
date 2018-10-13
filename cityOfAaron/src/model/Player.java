@@ -1,5 +1,5 @@
 /*
-* The main() class file for the cityOfAaron project
+* The Player() class file for the cityOfAaron project
 * CIT-260
 * Fall 2018
 * Team members: Irina O'Hara, Rob Nebeker, Justin Wakefield
@@ -16,7 +16,7 @@ import java.util.Objects;
 public class Player implements Serializable{
     //class instance variables
     private String name;
-    private ArrayList<Game> games = new ArrayList<Game>();
+    private ArrayList<Game> games = new ArrayList<>();
     
     public Player(){}
 
