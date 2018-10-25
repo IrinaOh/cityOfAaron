@@ -102,7 +102,9 @@ public class CropControl {
        if (acresToBuy * landPrice > acresOwned)
            return -1;
        //If acresToBuy > 10*people, return -1
-       int people = 
+       int people = cropData.getNewPeople();
+       if ((acresToBuy) > 10 * people)
+           return -1;
        //acresOwned = acresOwned + acresToBuy
        acresOwned += acresToBuy;
        // wheatInStore = wheatInStore - (acresToBuy x landPrice)
@@ -112,7 +114,7 @@ public class CropControl {
        // return acresOwned
        return acresOwned;
        // return wheatInStore
-       return wheatInStore;
+       return wheat;
 
         
     }
