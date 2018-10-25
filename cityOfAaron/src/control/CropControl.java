@@ -113,11 +113,11 @@ public class CropControl {
        cropData.setWheatInStore(wheat);
        // return acresOwned
        return acresOwned;
-       // return wheatInStore
-       return wheat;
+       
 
         
     }
+}
     
         
     
