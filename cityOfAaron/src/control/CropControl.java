@@ -11,7 +11,7 @@ package control;
  *
  * @author Justin Wakefield
  */
-import CropData;
+import model.CropData;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -45,7 +45,7 @@ public class CropControl {
  * Pre-conditions: acres to sell must be positive
  * and <=acresOwned
  */
-    public static int sellLand(int landPrice, int acresToSell, CropData)
+    public static int sellLand(int landPrice, int acresToSell, CropData cropData)
     {
         //if acresToSell < 0, return -1
         if (acresToSell < 0)
@@ -78,7 +78,7 @@ public class CropControl {
      * the land.
      */
     
-    public static int buyLand(int priceOfLand, int acresToBuy, int wheatInStore,int people CropData){
+    public static int buyLand(int priceOfLand, int acresToBuy, int wheatInStore,int people, CropData cropData){
         /*
         Clearly define the problem the method is to solve 
     A bushel of wheat is the currency in our game.  The price of land is a 
@@ -97,11 +97,9 @@ public class CropControl {
         
        // if acresToBuy < 0, return -1
        if (acresToBuy < 0)
-           return -1
-       // if wheatInStore < ( landPrice * acresToBuy), return -1
-       int owned = CropData.getAcresOwned ();
-       if (acresToBuy * landPrice > owned)
            return -1;
+       // if wheatInStore < ( landPrice * acresToBuy), return -1
+       
        //If acresToBuy > 10*people, return -1
        
        //acresOwned = acresOwned + acresToBuy
@@ -120,5 +118,5 @@ public class CropControl {
     
     
     
-            }
+            
 
