@@ -75,6 +75,10 @@ public class CropControl {
      * Pre-conditions: The number of acres to buy can't be positive, there must
      * be enough people to tend the land, and you must have enough wheat to buy
      * the land.
+     * @param landPrice
+     * @param acresToBuy
+     * @param cropData
+     * @return 
      */
     
     public int buyLand(int landPrice, int acresToBuy, CropData cropData){
@@ -102,8 +106,8 @@ public class CropControl {
        if (acresToBuy * landPrice > acresOwned)
            return -1;
        //If acresToBuy > 10*people, return -1
-       int people = cropData.getNewPeople();
-       if ((acresToBuy) > 10 * people)
+       int people = cropData.getPopulation();
+       if (acresToBuy > (10 * people))
            return -1;
        //acresOwned = acresOwned + acresToBuy
        acresOwned += acresToBuy;
