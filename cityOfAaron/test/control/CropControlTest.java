@@ -66,6 +66,27 @@ public class CropControlTest {
         assertEquals(expResult, result);
 
     }
+
+    /**
+     * Test of feedPeople method, of class CropControl.
+     */
+    @Test
+    public void testFeedPeople() {
+        System.out.println("feedPeople Test Case 1");
+        CropData cropData = new CropData();
+        CropControl instance = new CropControl();
+        cropData.setWheatForPeople(10);
+        cropData.setWheatInStore(300);
+        
+        int wheatInStore = 300;
+        int wheatForPeople = 10;
+        int expResult = 290;
+        int result;
+        result = CropControl.feedPeople(wheatInStore, cropData);
+        System.out.println(result);
+        assertEquals(expResult, result);
+        
+    }
     
     
     
