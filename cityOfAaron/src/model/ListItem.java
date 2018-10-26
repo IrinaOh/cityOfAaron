@@ -1,8 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* The main() class file for the cityOfAaron project
+* CIT-260
+* Fall 2018
+* Team members: Irina O'Hara, Rob Nebeker, Justin Wakefield
+*/
 package model;
 
 import java.io.Serializable;
