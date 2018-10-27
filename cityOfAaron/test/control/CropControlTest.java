@@ -87,6 +87,21 @@ public class CropControlTest {
         assertEquals(expResult, result);
         
     }
+
+    /**
+     * Test of setOffering method, of class CropControl.
+     */
+    @Test
+    public void testSetOffering() {
+        System.out.println("setOffering");
+        int percent = 0;
+        CropData cropData = null;
+        int expResult = 0;
+        int result = CropControl.setOffering(percent, cropData);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
     
     
