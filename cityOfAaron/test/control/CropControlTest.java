@@ -87,6 +87,27 @@ public class CropControlTest {
         assertEquals(expResult, result);
         
     }
+
+    /**
+     * Test of plantCrops method, of class CropControl.
+     */
+    @Test
+    public void testPlantCrops() {
+        System.out.println("plantCrops test case");
+        CropData cropData = new CropData();
+        cropData.setAcresOwned(200);
+        cropData.setWheatInStore(600);
+        CropControl instance = new CropControl();
+        
+        int acresToPlant = 100;
+        int acresOwned = 200;   
+        int wheatInStore = 600;
+        int expResult = 550;
+        int result;     
+        result = instance.plantCrops(acresToPlant, cropData);
+        System.out.println(result);
+        assertEquals(expResult, result);
+    }
     
     
     
