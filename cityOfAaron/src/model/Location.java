@@ -1,5 +1,5 @@
 /*
-* The main() class file for the cityOfAaron project
+* The Location() class file for the cityOfAaron project
 * CIT-260
 * Fall 2018
 * Team members: Irina O'Hara, Rob Nebeker, Justin Wakefield

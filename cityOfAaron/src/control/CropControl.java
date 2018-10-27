@@ -1,4 +1,3 @@
-
 /**
  * The CropControl class - part of the control layer
  * class contains all of the calculation methods for managing the crops
@@ -36,14 +35,14 @@ public class CropControl {
     }
     
     /**
- * The sellLand method
- * Purpose: To sell land
- * parameters: the price of land, the number of acres to sell, and
- * a reference to a CropData object
- * Returns: the number of acres owned after the sale
- * Pre-conditions: acres to sell must be positive
- * and <=acresOwned
- */
+    * The sellLand method
+    * Purpose: To sell land
+    * parameters: the price of land, the number of acres to sell, and
+    * a reference to a CropData object
+    * Returns: the number of acres owned after the sale
+    * Pre-conditions: acres to sell must be positive
+    * and <=acresOwned
+    */
     public static int sellLand(int landPrice, int acresToSell, CropData cropData)
     {
         //if acresToSell < 0, return -1
@@ -92,10 +91,10 @@ public class CropControl {
         calculations, where w is the total amount of bushels of wheat we own, 
         and a is the total number of acres we own: 
 
-     w = w - (p * n)
-     a = a + n
-     pe = 10 * a
-       */
+        w = w - (p * n)
+        a = a + n
+        pe = 10 * a
+        */
         
         
        // if acresToBuy < 0, return -1
@@ -122,7 +121,7 @@ public class CropControl {
         /**
     * Method: feedPeople
     * Purpose: feed the people
-     * @param wheatInStore
+    * @param wheatInStore
     * @param wheatForPeople
     * @param cropData
     * @return CropData.wheatInStore
@@ -131,17 +130,16 @@ public class CropControl {
     *  -wheatInStore > wheatForPeople
     */ 
         
-      public static int feedPeople(int wheatInStore, CropData cropData){
-          int wheatForPeople = 0;
-          
+    public static int feedPeople(int wheatInStore, CropData cropData){
+        //int wheatForPeople = 0;      
         
-    /*
-    People are fed with wheat in the game. To feed the people, the player
-    needs to have enought wheat.  If there is not enought wheat ws, then
-    there will be an error.  The program must do the following calculations
-    where wp equals wheat for people and ws equals wheat in store.
-    */   
-         
+        /*
+        People are fed with wheat in the game. To feed the people, the player
+        needs to have enought wheat.  If there is not enought wheat ws, then
+        there will be an error.  The program must do the following calculations
+        where wp equals wheat for people and ws equals wheat in store.
+        */   
+
     //if wheatForPeople < 0, return -1
     if (wheatForPeople < 0)
         return -1;
@@ -156,6 +154,39 @@ public class CropControl {
     //return wheatInStore
     return wheatInStore;
     
+    }
+    
+    /**
+     * The plantCrop method
+     * Purpose: To crop wheat
+     * Parameters: the number of wheat to plant, the number of land to plant on
+     * Returns: the number of wheat after planting
+     * Pre-conditions: number of wheat must be positive, there must be enough land to plant on.
+     */
+
+    public static int plantCrops(int acresToPlant, CropData cropData)
+    {
+        //if acresToPlant < 0, return -1
+        if(acresToPlant < 0)
+            return -1;
+        
+        //if acresOwned < acresToPlant, return -1
+        int acresOwned = cropData.getAcresOwned();
+        if(acresOwned < acresToPlant)
+            return -1;
+        
+        //if wheatInStore < ( acresToPlant / 2), return -1
+        int wheatInStore = cropData.getWheatInStore();
+        if(wheatInStore < acresToPlant/2)
+            return -1;  
+        
+        //wheatInStore = wheatInStore - wheatToPlant
+        int wheatToPlant = acresToPlant/2;
+        wheatInStore -= wheatToPlant;
+        cropData.setWheatInStore(wheatInStore);
+        
+        //return wheatInStore
+        return wheatInStore;
     }
 }
     
