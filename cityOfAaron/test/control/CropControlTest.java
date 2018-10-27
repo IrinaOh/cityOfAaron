@@ -82,12 +82,93 @@ public class CropControlTest {
         int wheatForPeople = 10;
         int expResult = 290;
         int result;
-        result = CropControl.feedPeople(wheatInStore, cropData);
+        result = instance.feedPeople(wheatInStore, cropData);
         System.out.println(result);
         assertEquals(expResult, result);
         
     }
-
+     /**
+     * Test of feedPeople method, of class CropControl.
+     */
+    @Test
+    public void testFeedPeople2() {
+        System.out.println("feedPeople Test Case 2");
+        CropData cropData = new CropData();
+        CropControl instance = new CropControl();
+        cropData.setWheatForPeople(-5);
+        cropData.setWheatInStore(300);
+        
+        int wheatInStore = 300;
+        int wheatForPeople = -5;
+        int expResult = -1;
+        int result;
+        result = instance.feedPeople(wheatInStore, cropData);
+        System.out.println(result);
+        assertEquals(expResult, result);
+        
+    }
+     /**
+     * Test of feedPeople method, of class CropControl.
+     */
+    @Test
+    public void testFeedPeople3() {
+        System.out.println("feedPeople Test Case 3");
+        CropData cropData = new CropData();
+        CropControl instance = new CropControl();
+        cropData.setWheatForPeople(400);
+        cropData.setWheatInStore(300);
+        
+        int wheatInStore = 300;
+        int wheatForPeople = 400;
+        int expResult = -1;
+        int result;
+        result = instance.feedPeople(wheatInStore, cropData);
+        System.out.println(result);
+        assertEquals(expResult, result);
+        
+    }
+    
+     /**
+     * Test of feedPeople method, of class CropControl.
+     */
+    @Test
+    public void testFeedPeople4() {
+        System.out.println("feedPeople Test Case 4");
+        CropData cropData = new CropData();
+        CropControl instance = new CropControl();
+        cropData.setWheatForPeople(300);
+        cropData.setWheatInStore(300);
+        
+        int wheatInStore = 300;
+        int wheatForPeople = 300;
+        int expResult = 0;
+        int result;
+        result = instance.feedPeople(wheatInStore, cropData);
+        System.out.println(result);
+        assertEquals(expResult, result);
+        
+    }
+    
+     /**
+     * Test of feedPeople method, of class CropControl.
+     */
+    @Test
+    public void testFeedPeople5() {
+        System.out.println("feedPeople Test Case 5");
+        CropData cropData = new CropData();
+        CropControl instance = new CropControl();
+        cropData.setWheatForPeople(0);
+        cropData.setWheatInStore(300);
+        
+        int wheatInStore = 300;
+        int wheatForPeople = 0;
+        int expResult = 300;
+        int result;
+        result = instance.feedPeople(wheatInStore, cropData);
+        System.out.println(result);
+        assertEquals(expResult, result);
+        
+    }
     /**
      * Tests of plantCrops method, of class CropControl.
      */
@@ -138,7 +219,7 @@ public class CropControlTest {
         int wheatInStore = 600;
         int expResult = -1;
         int result;     
-        result = instance.plantCrops(acresToPlant, cropData);
+        result = CropControl.plantCrops(acresToPlant, cropData);
         System.out.println(result);
         assertEquals(expResult, result);
     }
@@ -155,7 +236,7 @@ public class CropControlTest {
         int wheatInStore = 600;
         int expResult = 500;
         int result;     
-        result = instance.plantCrops(acresToPlant, cropData);
+        result = CropControl.plantCrops(acresToPlant, cropData);
         System.out.println(result);
         assertEquals(expResult, result);
     }
@@ -172,7 +253,7 @@ public class CropControlTest {
         int wheatInStore = 600;
         int expResult = 600;
         int result;     
-        result = instance.plantCrops(acresToPlant, cropData);
+        result = CropControl.plantCrops(acresToPlant, cropData);
         System.out.println(result);
         assertEquals(expResult, result);
     }
@@ -188,9 +269,10 @@ public class CropControlTest {
         int expResult = 0;
         int result = CropControl.setOffering(percent, cropData);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
+
+   
     
     
     
