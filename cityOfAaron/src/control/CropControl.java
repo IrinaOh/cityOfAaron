@@ -65,6 +65,12 @@ public class CropControl {
         //return acresOwned
         return acresOwned;
     }
+
+    static int setOffering(int percent, CropData cropData) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
     /**
      * The buyLand method
      * Purpose: To buy land
@@ -130,7 +136,7 @@ public class CropControl {
     *  -wheatInStore > wheatForPeople
     */ 
         
-    public static int feedPeople(int wheatInStore, CropData cropData){
+    
         //int wheatForPeople = 0;      
         
         /*
@@ -139,8 +145,9 @@ public class CropControl {
         there will be an error.  The program must do the following calculations
         where wp equals wheat for people and ws equals wheat in store.
         */   
-
+     public static int feedPeople(int wheatInStore, CropData cropData){
     //if wheatForPeople < 0, return -1
+    int wheatForPeople = cropData.getWheatForPeople();
     if (wheatForPeople < 0)
         return -1;
     // if wheatInStore < wheatForPeople return -1
