@@ -132,18 +132,6 @@ public class MainMenuView {
     // ===================================
     public void startNewGame()
     {
-        System.out.println("Start new game option selected.");
-    }
-    
-    /**
-    * The startNewGame method
-    * Purpose: creates game object and starts the game
-    * Parameters: none
-    * Returns: none
-    */
-    // ===================================
-    public void startSavedGame()
-    {
         // Display the Banner Page.
         System.out.println("Welcome to the city of Aaron");
         // Create a new Player object
@@ -155,7 +143,19 @@ public class MainMenuView {
         control.GameControl.createNewGame(name);
         // Display a welcome message
         System.out.println("Welcome " + name + " have fun!!!");
-    // Display the Game menu
+        // Display the Game menu
+    }
+    
+    /**
+    * The startNewGame method
+    * Purpose: creates game object and starts the game
+    * Parameters: none
+    * Returns: none
+    */
+    // ===================================
+    public void startSavedGame()
+    {
+        System.out.println("\nStart where you left off.");
     }
     
     public void displayHelpMenuView()
