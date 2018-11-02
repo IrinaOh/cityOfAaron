@@ -8,13 +8,17 @@ package cityofaaron;
 
 import model.Player;
 import model.TeamMember;
-import model.ListItem;
+import model.Game;
+import view.*;
 
 /**
  *
  * @author irina
  */
 public class CityOfAaron {
+    // variable for keeping a reference to the Game object
+    private static Game theGame = null;
+
 
     /**
      * @param args the command line arguments
@@ -22,11 +26,23 @@ public class CityOfAaron {
     public static void main(String[] args) {
         Player playerOne = new Player();
         
+        MainMenuView mmv = new MainMenuView();
+        mmv.displayMenu();
+        
+        Game myGame = new Game();
+        
         playerOne.setName("Fred Flintstone");
         
         System.out.println(playerOne.toString());
         
         System.out.println(TeamMember.Father.toString());
     }
+
+    public static void setGame(Game game) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+   
+
     
 }
