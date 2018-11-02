@@ -16,14 +16,18 @@ public class GameControl {
     {
         // create the game object
         Game game = new Game();
+        
         // create the player object and set the name
         Player player = new Player();
         player.setName(_name);
+        
         // save reference to the player object in the game
         game.setPlayer(player);
+        
         // create and initialize a CropData object
-        // save a reference to it in the Game object
         CropData cropData = new CropData();
+        
+        // save a reference to it in the Game object
         cropData.setYear(0);
         cropData.setPopulation(100);
         cropData.setNewPeople(5);
