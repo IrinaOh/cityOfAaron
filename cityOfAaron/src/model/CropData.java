@@ -244,6 +244,7 @@ public class CropData implements Serializable{
         if (this.wheatForPeople != other.wheatForPeople) {
             return false;
         }
+        
         return true;
     }
 
