@@ -40,7 +40,7 @@ public class CropView {
     toBuy=keyboard.nextInt();
     
     //Call the buyLand()method in the control layer to buy the land
-    CropControl.buyLand(acresToBuy,landPrice,cropData);
+    CropControl.buyLand(toBuy,price,cropData);
     
     //output how much land we now own
     System.out.format("You now own %d acres of land.",cropData.getAcresOwned());
