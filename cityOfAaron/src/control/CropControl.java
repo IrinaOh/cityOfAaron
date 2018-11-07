@@ -66,13 +66,15 @@ public class CropControl {
         return acresOwned;
     }
 
-    static int setOffering(int percent, CropData cropData) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    static int setOffering(int percent, CropData cropData) {return 0;
+}
+       
+    
 
-    public static int calcLandPrice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public static int calcLandPrice() {return 0;
+}
+        
+    
 
     
     /**
