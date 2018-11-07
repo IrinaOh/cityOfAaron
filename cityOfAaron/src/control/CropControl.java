@@ -92,7 +92,7 @@ public class CropControl {
      * @return 
      */
     
-    public int buyLand(int landPrice, int acresToBuy, CropData cropData){
+    public static int buyLand(int landPrice, int acresToBuy, CropData cropData){
         /*
         Clearly define the problem the method is to solve 
         A bushel of wheat is the currency in our game.  The price of land is a 
