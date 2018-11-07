@@ -135,7 +135,7 @@ public class CropView {
      */
     public static void runCropsView() {
       
-        
+        cropReportView(cropData);
         buyLandView();
         sellLandView();
         feedPeopleView(cropData);
