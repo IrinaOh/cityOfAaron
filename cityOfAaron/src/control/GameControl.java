@@ -42,5 +42,5 @@ public class GameControl {
         // when all is done, save a reference to the Game object
         CityOfAaron.setGame(game);
     }
-    
+     
 }
