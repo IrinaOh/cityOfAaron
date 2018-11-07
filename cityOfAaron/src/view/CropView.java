@@ -39,13 +39,13 @@ public class CropView {
     int toBuy;
     toBuy=keyboard.nextInt();
     
-    //Call the buyLand()method in the control layer to buy the land
-    CropControl.buyLand(toBuy,price,cropData);
+        //Call the buyLand()method in the control layer to buy the land
+    CropControl.buyLand(toBuy, price, cropData);
     
     //output how much land we now own
     System.out.format("You now own %d acres of land.",cropData.getAcresOwned());
     }
-    
+
     
     
     public static void sellLandView() {
@@ -62,7 +62,7 @@ public class CropView {
     toSell = keyboard.nextInt();
     
     //call the sellLand() method in the control layer to sell the land
-    CropControl.sellLand(price, toSell, cropData;
+    CropControl.sellLand(toSell, price, cropData);
     
     //output how much land we now own
      System.out.format("You now own %d acres of land.",cropData.getAcresOwned());
@@ -81,7 +81,7 @@ public class CropView {
         wheatForPeople = keyboard.nextInt();
         
         //give to the people
-        CropControl.feedPeople(wheatForPeople, cropData;
+        CropControl.feedPeople(wheatForPeople, cropData);
         
         //output how much wheat we now have
         System.out.format("You now own %d wheat.",cropData.getWheatInStore());
@@ -105,7 +105,7 @@ public class CropView {
          
          //plant crops
     
-         CropControl.plantCrops(landToPlant, cropData;
+         CropControl.plantCrops(landToPlant, cropData);
          
     }
     
