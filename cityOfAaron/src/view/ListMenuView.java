@@ -15,26 +15,42 @@ import model.*;
  */
 public class ListMenuView {
     Scanner keyboard = new Scanner(System.in);
-    private int max;
-    private String listMenu;
+    private final int max;
+    private final String listMenu;
     
 
-  public void displayMenuView()
+    public void displayMenuView()
     {
         
         Game myGame = new Game();
-         int menuOption = 0;
+         int menuOption;
             do
             {
-            //Display the Menu
-                 System.out.println(listMenu);
-            //Prompt for input
+                //Display the Menu
+                System.out.println(listMenu);
+                //Prompt for input
                 menuOption = getMenuOption();
-            //Perform actions
-                   doAction(menuOption);
-            //Determine next view
+                //Perform actions
+                doAction(menuOption);
+                //Determine next view
             }  while (menuOption != max);    
     }
+    
+    public ListMenuView()
+    {
+        listMenu = "\n" +
+            "**********************************\n" +
+            "* CITY OF AARON: LIST MENU *\n" +
+            "**********************************\n" +
+            " 1 - List the animals in the storehouse\n" +
+            " 2 - List the tools in the storehouse\n" +
+            " 3 - List the provisions in the storehouse\n" +
+            " 4 - List the authors of this game\n" +
+            " 5 - Return to Game Menu\n";
+
+        max = 5;
+    }
+    
     public int getMenuOption() {
     // The getMenuOption method
     int userInput;
@@ -64,24 +80,24 @@ public class ListMenuView {
         // governing switch statement
         switch (option) {
             
-            case 1: // View Map
-                viewMap();
+            case 1: // View Animals
+                listAnimals();
                 break;
         
-            case 2: // view list
-                viewList();
+            case 2: // view tools
+                listTools();
                 break;
           
-            case 3: // move to new location
-                moveToNewLocation();
+            case 3: // list provisions
+                listProvisions();
                 break;
           
-            case 4: // manage crops
-                manageCrops();
+            case 4: // list authors
+                listTeam();
                 break;
             
-            case 5:
-                System.out.println("Thanks for playing! Goodbye =D\n");
+            case 5: //return to game menu
+                break;
         }
     }
 
@@ -101,19 +117,4 @@ public class ListMenuView {
         System.out.println("List Team Option Selected");
     }
 
-    private void viewMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void viewList() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void moveToNewLocation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void manageCrops() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
