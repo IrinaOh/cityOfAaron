@@ -41,6 +41,21 @@ public class GameMenuView {
             //Determine next view
             }  while (menuOption != max);    
     }
+     public GameMenuView()
+    {
+        gameMenu = "\n" +
+
+            "**********************************\n" +
+            "* CITY OF AARON: HELP MENU *\n" +
+            "**********************************\n" +
+            " 1 - View the map\n" +
+            " 2 - View/Print a list\n" +
+            " 3 - Move to a new location\n" +
+            " 4 - Manage the Crops\n" +
+            " 5 - Return to the Main menu\n" ;
+
+        max = 5;
+    } 
     public int getMenuOption() {
     // The getMenuOption method
     int userInput;
