@@ -25,7 +25,7 @@ public class HelpMenuView {
     * Returns: none
     */
     // =========================================================
-        public void displayMenuView()
+    public void displayMenuView()
     {
         int menuOption;
         do
