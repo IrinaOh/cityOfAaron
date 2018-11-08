@@ -111,42 +111,48 @@ public class HelpMenuView {
         switch (option)
         {
             case 1: // if the option is 1, call displayGoalsOfTheGame( )
-                displayGoalsOfTheGame();
+                viewGoals();
                 break;
             case 2: // if the option is 2, call displayLocationOfCity( )
-                startLocationOfCity();
+                viewCityLocation();
                 break;
             case 3: // if the option is 3, call displayHowToViewMap( )
-                displayHowToViewMap();
+                viewMapHelp();
                 break;
             case 4: // if the option is 4, call displayHowToMoveLocation( )
-                displayHowToMoveLocation();
+                viewMoveHelp();
                 break;
             case 5: // if the option is 5, displayStoreHouseList()
-                displayStoreHouseList();
+                viewListHelp();
                 break;
             case 6: // if the option is 6, return to main menu
                 break;
         }        
     } 
 
-    private void displayGoalsOfTheGame() {
-    System.out.println("This option will display the goals of the game.");    
+    private void viewGoals() {
+    System.out.println("The player of the game will assume the role of the leader over the city of Aaron. Wheat\n" +
+        "is the staff of life, and is used as the main currency in the city. As ruler over the city, the\n" +
+        "player’s task is to manage the village’s wheat crops so that the people of the village can\n" +
+        "be adequately fed, while dealing with rats, and random crop yields. The city is blessed\n" +
+        "when the people pay their tithes and offerings. After serving for 10 years, the player will\n" +
+        "be judged by the people. If too many people die during the player’s term of office, the\n" +
+        "player is removed from office and the game ends.");    
     }
 
-    private void startLocationOfCity() {
-    System.out.println("This option will display where the city of Aaron is located.");    
+    private void viewCityLocation() {
+    System.out.println("The City Of Aaron is located near the cities of Moroni and Nephihah.");    
     }
 
-    private void displayHowToViewMap() {
-    System.out.println("This option will tell you how to display the map.");    
+    private void viewMapHelp() {
+    System.out.println("Enter 6 to RETURN TO THE MAIN MENU view, start a new game, and enter 1 to display the map");    
     }
 
-    private void displayHowToMoveLocation() {
-    System.out.println("This option will explain how to move to a location.");    
+    private void viewMoveHelp() {
+    System.out.println("Enter 6 to RETURN TO THE MAIN MENU view, start a new game, and enter 3 to move to a new location.");    
     }
 
-    private void displayStoreHouseList() {
-    System.out.println("This option will display the contents of the storehouse.");    
+    private void viewListHelp() {
+    System.out.println("Enter 6 to RETURN TO THE MAIN MENU view, start a new game or continue a saved one, and enter options 1-4 to display resources.");    
     }
 }
