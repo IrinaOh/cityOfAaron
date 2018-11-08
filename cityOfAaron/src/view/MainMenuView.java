@@ -160,7 +160,8 @@ public class MainMenuView {
     
     public void displayHelpMenuView()
     {
-        System.out.println("get help menu");
+        HelpMenuView hmv = new HelpMenuView();
+        hmv.displayMenuView(); 
     }
     
     public void displaySaveGameView()
