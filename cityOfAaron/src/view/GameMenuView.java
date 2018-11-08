@@ -15,8 +15,8 @@ import model.*;
  */
 public class GameMenuView {
     Scanner keyboard = new Scanner(System.in);
-    private String gameMenu;
-    private int max;
+    private final String gameMenu;
+    private final int max;
     
    /**
      * Constructor
@@ -29,7 +29,7 @@ public class GameMenuView {
     {
         
         Game myGame = new Game();
-         int menuOption = 0;
+         int menuOption;
             do
             {
             //Display the Menu
@@ -44,9 +44,8 @@ public class GameMenuView {
      public GameMenuView()
     {
         gameMenu = "\n" +
-
             "**********************************\n" +
-            "* CITY OF AARON: HELP MENU *\n" +
+            "* CITY OF AARON: GAME MENU *\n" +
             "**********************************\n" +
             " 1 - View the map\n" +
             " 2 - View/Print a list\n" +
@@ -101,8 +100,8 @@ public class GameMenuView {
                 manageCrops();
                 break;
             
-            case 5:
-                System.out.println("Thanks for playing! Goodbye =D\n");
+            case 5: //return to main menu
+                break;
         }
     }
     
@@ -112,7 +111,8 @@ public class GameMenuView {
     }
     
     public void viewList() {
-        System.out.println("View List Option Selected");
+        ListMenuView lmv = new ListMenuView();
+        lmv.displayMenuView();
     }
 
     public void moveToNewLocation() {
