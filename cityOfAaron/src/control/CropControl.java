@@ -66,8 +66,22 @@ public class CropControl {
         return acresOwned;
     }
 
-    static int setOffering(int percent, CropData cropData) {return 0;
-}
+   public static int setOffering(int percent, CropData cropData) {
+       
+        if (percent > 0) {
+            int offering = (percent * cropData.getWheatInStore()) / 100;
+            cropData.setOffering(offering);
+            return offering;
+        }
+        
+        if (percent == 0) {
+            return 0;            
+        }
+        
+        else {
+            return -1;
+        }
+    }
        
     
 
