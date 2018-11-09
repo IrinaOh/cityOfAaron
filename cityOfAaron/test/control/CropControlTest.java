@@ -262,11 +262,38 @@ public class CropControlTest {
      * Test of setOffering method, of class CropControl.
      */
     @Test
-    public void testSetOffering() {
-        System.out.println("setOffering");
+    public void testSetOffering1() {
+        System.out.println("setOffering test 1");
         int percent = 0;
         CropData cropData = null;
         int expResult = 0;
+        int result = CropControl.setOffering(percent, cropData);
+        assertEquals(expResult, result);
+        
+    }
+    @Test
+    public void testSetOffering2() {
+        System.out.println("setOffering test 2");
+        CropData cropData = new CropData();
+        cropData.setWheatInStore(600);
+        CropControl instance = new CropControl();
+        int percent = 10;
+        int wheatInStore = 600;
+        int expResult = 60;
+        int result = CropControl.setOffering(percent, cropData);
+        assertEquals(expResult, result);       
+    }
+    @Test
+    public void testSetOffering3() {
+        System.out.println("setOffering test 3");
+        CropData cropData = new CropData();
+        cropData.setWheatInStore(600);
+        CropControl instance = new CropControl();
+        int percent = -10;
+        //cropData.setWheatInStore = (600);
+        int wheatInStore = 600;
+
+        int expResult = -1;
         int result = CropControl.setOffering(percent, cropData);
         assertEquals(expResult, result);
         
