@@ -7,43 +7,24 @@ package view;
 
 import java.util.Scanner;
 import model.*;
+import control.*;
 
 
 /**
  *
  * @author Justin Wakefield
  */
-public class GameMenuView {
+public class GameMenuView extends MenuView {
     Scanner keyboard = new Scanner(System.in);
-    private final String gameMenu;
-    private final int max;
     
-   /**
-     * Constructor
-     * Purpose: Initialize menu data
-     * Parameters: none
-     * Returns: none
-     */
+    Game theGame = new Game();
     
-  public void displayMenuView()
-    {
-        
-        Game myGame = new Game();
-         int menuOption;
-            do
-            {
-            //Display the Menu
-                 System.out.println(gameMenu);
-            //Prompt for input
-                menuOption = getMenuOption();
-            //Perform actions
-                   doAction(menuOption);
-            //Determine next view
-            }  while (menuOption != max);    
-    }
+  
+    
+
      public GameMenuView()
     {
-        gameMenu = "\n" +
+        super("\n" +
             "**********************************\n" +
             "* CITY OF AARON: GAME MENU *\n" +
             "**********************************\n" +
@@ -51,27 +32,11 @@ public class GameMenuView {
             " 2 - View/Print a list\n" +
             " 3 - Move to a new location\n" +
             " 4 - Manage the Crops\n" +
-            " 5 - Return to the Main menu\n" ;
+            " 5 - Return to the Main menu\n" ,
 
-        max = 5;
+        5);
     } 
-    public int getMenuOption() {
-    // The getMenuOption method
-    int userInput;
-    // begin loop
-        do{
-            // get user input from the keyboard
-            userInput = keyboard.nextInt();
-
-            // if it is not a valid value, output an error message
-            if(userInput < 1 || userInput > max)
-            {
-                System.out.println("\noption must be between 1 and " + max);
-            } 
-            return userInput;
-            }while(userInput < 1 || userInput > max);
-        
-        }
+ 
     
     /**
      * Method: doAction
@@ -80,6 +45,7 @@ public class GameMenuView {
      * @param option
      * Returns: none
      */
+    @Override
      public void doAction(int option) {
         // governing switch statement
         switch (option) {
