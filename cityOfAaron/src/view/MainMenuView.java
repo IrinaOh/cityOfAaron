@@ -19,10 +19,11 @@ public class MainMenuView extends MenuView {
     * selected action
     * Parameters: none
     * Returns: none
+     * @return 
     */
 
-    public MainMenuView(){
-        menu = "\n" +
+    public  MainMenuView(){
+        super ("\n" +
         "**********************************\n" +
         "* CITY OF AARON: MAIN GAME MENU *\n" +
         "**********************************\n" +
@@ -30,8 +31,8 @@ public class MainMenuView extends MenuView {
         " 2 - Get and start a saved game\n" +
         " 3 - Get help on playing the game\n" +
         " 4 - Save game\n" +
-        " 5 - Quit\n";
-        max = 5;
+        " 5 - Quit\n",
+        5);
     }
     /**
     *The doAction method
