@@ -4,6 +4,7 @@
 // Date last modified: November 2018
 //-------------------------------------------------------------
 package view;
+import control.GameControl;
 import java.util.Scanner;
 /**
  *
@@ -18,8 +19,7 @@ public class MainMenuView extends MenuView {
     * Purpose: displays the menu, gets the user's input, and does the
     * selected action
     * Parameters: none
-    * Returns: none
-     * @return 
+    * Returns: none 
     */
 
     public  MainMenuView(){
@@ -84,9 +84,10 @@ public class MainMenuView extends MenuView {
         control.GameControl.createNewGame(name);
         // Display a welcome message
         System.out.println("Welcome " + name + " have fun!!!");
+        GameControl.createNewGame(name);
         // Display the Game menu
         GameMenuView gmv = new GameMenuView();
-        gmv.displayMenuView();
+        gmv.displayMenu();
     }
     
     /**
