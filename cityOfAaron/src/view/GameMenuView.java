@@ -7,7 +7,6 @@ package view;
 
 import java.util.Scanner;
 import model.*;
-import control.*;
 
 
 /**
