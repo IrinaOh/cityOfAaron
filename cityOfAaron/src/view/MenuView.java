@@ -8,7 +8,7 @@ package view;
 import java.util.Scanner;
 /**
  *The MenuView class - base abstract class for all menu views
- * @author Justin Wakefield
+ * @author  Justin Wakefield, Irina O'Hara, Robert Nebeker
  * Date last modified: November 15 2018
  */
 public abstract class MenuView implements ViewInterface{

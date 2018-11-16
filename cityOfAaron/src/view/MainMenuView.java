@@ -105,7 +105,7 @@ public class MainMenuView extends MenuView {
     public void displayHelpMenuView()
     {
         HelpMenuView hmv = new HelpMenuView();
-        hmv.displayMenuView(); 
+        hmv.displayMenu(); 
     }
     
     public void displaySaveGameView()
