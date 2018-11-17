@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 package view;
-
 import java.util.Scanner;
-import model.*;
-
 
 /**
  *
@@ -40,13 +37,13 @@ public class ListMenuView extends MenuView {
     
         
     /**
-     * Method: doAction
-     * Purpose: performs selected option
-     * Parameters:
+    *The doAction method
+    * Purpose: performs the selected action
+    * Parameters: none
+    * Returns: none
      * @param option
-     * Returns: none
-     */
-    
+    */
+    // ===================================    
     @Override
      public void doAction(int option) {
         // governing switch statement
