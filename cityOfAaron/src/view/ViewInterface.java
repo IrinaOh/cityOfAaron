@@ -7,7 +7,7 @@ package view;
 
 /**
  *
- * @author Justin Wakefield
+ * @author Justin Wakefield, Irina O'Hara, Robert Nebeker
  */
 public interface ViewInterface {
     public void displayMenu();
