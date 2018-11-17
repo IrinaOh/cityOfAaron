@@ -14,41 +14,29 @@ import model.*;
  * @author Robert Nebeker
  */
 public class ListMenuView extends MenuView {
+    
     Scanner keyboard = new Scanner(System.in);
-    private final int max;
-    private final String listMenu;
-    
 
-    public void displayMenuView()
-    {
-        
-        Game myGame = new Game();
-         int menuOption;
-            do
-            {
-                //Display the Menu
-                System.out.println(listMenu);
-                //Prompt for input
-                menuOption = getMenuOption();
-                //Perform actions
-                doAction(menuOption);
-                //Determine next view
-            }  while (menuOption != max);    
-    }
-    
+    /**
+    * The ListMenuView constructor
+    * Purpose: Initialize the menu data
+    * Parameters: none
+    * Returns: none
+    */
+    // ===================================    
     public ListMenuView()
-    { 
-       listMenu = "\n" +
-            "**********************************\n" +
-            "* CITY OF AARON: LIST MENU *\n" +
-            "**********************************\n" +
-            " 1 - List the animals in the storehouse\n" +
-            " 2 - List the tools in the storehouse\n" +
-            " 3 - List the provisions in the storehouse\n" +
-            " 4 - List the authors of this game\n" +
-            " 5 - Return to Game Menu\n";
-
-        max = 5;
+    {
+        super("\n" +  
+                "*********************************\n" + 
+                "*   CITY OF AARON : LIST MENU   *\n" +
+                "*********************************\n" +
+                " 1 - View the development team\n"    +
+                " 2 - View a list of animals\n"       +
+                " 3 - View a list of tools\n"         + 
+                " 4 - View a list of provisions\n"    + 
+                " 5 - Save a list of animals to local disk." +
+                " 6 - Return to the game menu\n",
+                5);    
     }
     
         
