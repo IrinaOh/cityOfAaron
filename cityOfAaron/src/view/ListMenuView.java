@@ -14,8 +14,6 @@ import control.*;
  */
 public class ListMenuView extends MenuView {
     Scanner keyboard = new Scanner(System.in);
-    private final int max;
-    private final String listMenu;
     
   
 /** Constructor     */
