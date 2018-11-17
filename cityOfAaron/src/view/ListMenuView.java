@@ -6,69 +6,34 @@
 package view;
 
 import java.util.Scanner;
-import model.*;
-
+import control.*;
 
 /**
  *
  * @author Robert Nebeker
  */
-public class ListMenuView {
+public class ListMenuView extends MenuView {
     Scanner keyboard = new Scanner(System.in);
     private final int max;
     private final String listMenu;
     
-
-    public void displayMenuView()
-    {
-        
-        Game myGame = new Game();
-         int menuOption;
-            do
-            {
-                //Display the Menu
-                System.out.println(listMenu);
-                //Prompt for input
-                menuOption = getMenuOption();
-                //Perform actions
-                doAction(menuOption);
-                //Determine next view
-            }  while (menuOption != max);    
-    }
-    
+  
+/** Constructor     */
     public ListMenuView()
     {
-        listMenu = "\n" +
-            "**********************************\n" +
-            "* CITY OF AARON: LIST MENU *\n" +
-            "**********************************\n" +
-            " 1 - List the animals in the storehouse\n" +
-            " 2 - List the tools in the storehouse\n" +
-            " 3 - List the provisions in the storehouse\n" +
-            " 4 - List the authors of this game\n" +
-            " 5 - Return to Game Menu\n";
-
-        max = 5;
+        super("\n" +  
+                "*********************************\n" + 
+                "*   CITY OF AARON : LIST MENU   *\n" +
+                "*********************************\n" +
+                " 1 - View the development team\n"    +
+                " 2 - View a list of animals\n"       +
+                " 3 - View a list of tools\n"         + 
+                " 4 - View a list of provisions\n"    + 
+                " 5 - Save a list of animals to local disk." +
+                " 6 - Return to the game menu\n",
+                5);    
     }
-    
-    public int getMenuOption() {
-    // The getMenuOption method
-    int userInput;
-    // begin loop
-        do{
-            // get user input from the keyboard
-            userInput = keyboard.nextInt();
-
-            // if it is not a valid value, output an error message
-            if(userInput < 1 || userInput > max)
-            {
-                System.out.println("\noption must be between 1 and " + max);
-            } 
-            return userInput;
-            }while(userInput < 1 || userInput > max);
-        
-        }
-    
+ 
     /**
      * Method: doAction
      * Purpose: performs selected option
@@ -76,7 +41,7 @@ public class ListMenuView {
      * @param option
      * Returns: none
      */
-     public void doAction(int option) {
+    @Override public void doAction(int option) {
         // governing switch statement
         switch (option) {
             
