@@ -77,8 +77,9 @@ public class GameMenuView extends MenuView {
     }
     
     public void viewList() {
-        ListMenuView lmv = new ListMenuView();
-        lmv.displayMenuView();
+        System.out.println("View List Option Selected");
+        ListMenuView lv = new ListMenuView();
+        lv.displayMenu(); 
     }
 
     public void moveToNewLocation() {
