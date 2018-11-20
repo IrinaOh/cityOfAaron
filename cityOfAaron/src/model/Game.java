@@ -22,7 +22,8 @@ public class Game implements Serializable{
     private ArrayList<ListItem> tools;
     private ArrayList<ListItem> provisions;
 
-    public Game(Player player, Game game, CropData cropData, ArrayList<ListItem> animals, ArrayList<ListItem> tools, ArrayList<ListItem> provisions) {
+    public Game(Player player, Game game, CropData cropData, ArrayList<ListItem> animals, ArrayList<ListItem> tools, ArrayList<ListItem> provisions) 
+    {
         this.player = player;
         this.game = game;
         this.cropData = cropData;
