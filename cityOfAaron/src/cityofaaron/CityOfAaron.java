@@ -17,7 +17,7 @@ import view.*;
  */
 public class CityOfAaron {
     // variable for keeping a reference to the Game object
-    private static Game theGame = null;
+    private static Game game = null;
 
 
     /**
@@ -29,7 +29,7 @@ public class CityOfAaron {
         MainMenuView mmv = new MainMenuView();
         mmv.displayMenu();
         
-        Game myGame = new Game();
+        Game game = new Game();
         
         playerOne.setName("Fred Flintstone");
         
@@ -38,13 +38,17 @@ public class CityOfAaron {
         System.out.println(TeamMember.Father.toString());
     }
 
+    
+    public static Game getGame() {
+       return game;
+    }
+    
+    
     public static void setGame(Game game) {
+        CityOfAaron.game = game;
         
     }
 
-    public static Game getTheGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
    
 
