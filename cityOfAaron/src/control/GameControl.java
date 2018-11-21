@@ -14,6 +14,9 @@ import cityofaaron.CityOfAaron;
  */
 public class GameControl {
     
+    // size of the Locations Array
+    private static final int MAX_ROW=5;
+    private static final int MAX_COL=5; 
     
     public static void createNewGame(String _name)
     {
@@ -54,7 +57,7 @@ public class GameControl {
             
             //save the cropData in the Game object
             
-         theGame.setCropData(theCrops);    
+         thegame.setCropData(theCrops);    
     }
 /**The createMap method
  * Purpose: creates the location objects and map
@@ -63,8 +66,8 @@ public class GameControl {
  */
     public static void createMap()
     {
-        int MAX_ROW = 0;
-        int MAX_COL = 0;
+
+
         //create the Map object,
         //refer to the Map constructor
         Map theMap = new Map(MAX_ROW, MAX_COL);
@@ -91,10 +94,11 @@ public class GameControl {
                           "In the spring, this low farmland floods and is covered with rich\n" +
                           "new soil. Wheat is planted as far as you can see.";
             
-        //set a farmland location with a hint
-        Location loc2 = new Location();
-        loc2.setDescription(farmland + "\nOne bushel will plant two acres of wheat.");
-        loc2.setSymbol("///");
-        theMap.setLocation(0, 2, loc2);
+        // set a farmland location with a hint
+        loc = new Location();
+        loc.setDescription(farmland + "\nOne bushel will plant two acres of wheat.");
+        loc.setSymbol("!!!");
+        theMap.setLocation(0, 2, loc);
+
 }
 }
