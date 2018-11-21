@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  *
  * @author irina
- *
+ */
 public class Game implements Serializable{
     private Player player;
     private Game game;
