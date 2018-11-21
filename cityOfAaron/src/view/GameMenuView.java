@@ -5,6 +5,7 @@
  */
 package view;
 
+import control.GameControl;
 import java.util.Scanner;
 import model.*;
 
@@ -73,6 +74,8 @@ public class GameMenuView extends MenuView {
    
     public void viewMap() {
         System.out.println("View Map Option Selected"); 
+        GameControl theGameControl = new GameControl();
+        theGameControl.displayMap(); 
     }
     
     public void viewList() {

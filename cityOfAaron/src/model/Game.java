@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class Game implements Serializable{
     private Player player;
     private Game game;
+    private Map map;
     private CropData cropData;
     private ArrayList<ListItem> animals;
     private ArrayList<ListItem> tools;
@@ -51,6 +52,14 @@ public class Game implements Serializable{
         this.game = game;
     }
 
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+    
     public CropData getCropData() {
         return cropData;
     }

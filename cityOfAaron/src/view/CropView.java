@@ -17,8 +17,8 @@ public class CropView {
      // Scanner Object
     private static Scanner keyboard = new Scanner(System.in);
     // References to Game and CropData
-    private static Game theGame = CityOfAaron.getTheGame();
-    private static CropData cropData = theGame.getCropData();
+    private static Game game = CityOfAaron.getGame();
+    private static CropData cropData = game.getCropData();
     
     /**
      * Method: buyLandView
