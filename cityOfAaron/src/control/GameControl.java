@@ -17,6 +17,7 @@ public class GameControl {
     // size of the Locations Array
     private static final int MAX_ROW=5;
     private static final int MAX_COL=5; 
+    private static Game game;
     
     public static void createNewGame(String _name)
     {
@@ -57,7 +58,7 @@ public class GameControl {
             
             //save the cropData in the Game object
             
-         thegame.setCropData(theCrops);    
+        game.setCropData(theCrops);    
     }
 /**The createMap method
  * Purpose: creates the location objects and map
