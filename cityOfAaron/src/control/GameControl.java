@@ -92,6 +92,7 @@ public class GameControl {
                 theMap.setLocation(i, 4, loc); 
             }
         
+        
         //define the string for a farm land location
         String farmland = "You are on the fertile banks of the River.\n" +
                           "In the spring, this low farmland floods and is covered with rich\n" +
