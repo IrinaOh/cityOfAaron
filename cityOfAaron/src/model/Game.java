@@ -27,6 +27,7 @@ public class Game implements Serializable{
     {
         this.player = player;
         this.game = game;
+        this.map = map;
         this.cropData = cropData;
         this.animals = animals;
         this.tools = tools;

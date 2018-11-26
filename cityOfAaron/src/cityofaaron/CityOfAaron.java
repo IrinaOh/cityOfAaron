@@ -19,23 +19,22 @@ public class CityOfAaron {
     // variable for keeping a reference to the Game object
     private static Game game = null;
 
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Player playerOne = new Player();
+//        Player playerOne = new Player();
         
         MainMenuView mmv = new MainMenuView();
         mmv.displayMenu();
         
-        Game game = new Game();
-        
-        playerOne.setName("Fred Flintstone");
-        
-        System.out.println(playerOne.toString());
-        
-        System.out.println(TeamMember.Father.toString());
+//        Game game = new Game();
+//        
+//        playerOne.setName("Fred Flintstone");
+//        
+//        System.out.println(playerOne.toString());
+//        
+//        System.out.println(TeamMember.Father.toString());
     }
 
     
@@ -45,12 +44,6 @@ public class CityOfAaron {
     
     
     public static void setGame(Game game) {
-        CityOfAaron.game = game;
-        
-    }
-
-    
-   
-
-    
+        CityOfAaron.game = game;        
+    }    
 }

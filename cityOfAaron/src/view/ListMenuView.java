@@ -5,6 +5,7 @@
  */
 package view;
 import java.util.Scanner;
+import control.GameControl;
 
 /**
  *
@@ -75,7 +76,8 @@ public class ListMenuView extends MenuView {
     }
 
     public void listTools() {
-        System.out.println("List Tools Option Selected");
+        GameControl gc = new GameControl();
+        gc.displayTools();
     }
     
      public void listProvisions() {
