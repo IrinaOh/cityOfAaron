@@ -80,9 +80,11 @@ public class ListMenuView extends MenuView {
         gc.displayTools();
     }
     
-     public void listProvisions() {
-        System.out.println("List Provisions Option Selected");
-    }
+    public void listProvisions() {
+        System.out.println("Show Provisions Selected");
+        GameControl gcp = new GameControl();
+        gcp.displayProvisions(); 
+    } 
      
     public void listTeam() {
         System.out.println("List Team Option Selected");
