@@ -164,7 +164,8 @@ public class GameControl {
         });
     }
     //create the list of provisions
-        public static void createProvisionsList() {
+        public static ArrayList<ListItem> createProvisionsList() {
+            Game _game = CityOfAaron.getGame();
             ArrayList<ListItem> provisions = new ArrayList<>();
             
             provisions.add(new ListItem("provision1", 15)); 
@@ -173,29 +174,23 @@ public class GameControl {
             provisions.add(new ListItem("provision4", 27));
             provisions.add(new ListItem("provision5", 32));
             
-            game.setProvisions(provisions);
+            _game.setProvisions(provisions);
+            return provisions;
+           
         }
-        // method to display provisions list
-   
-        public static void showProvisionsList() {
-            System.out.println("Provisions"); 
-            ArrayList<ListItem> provisions = game.getProvisions();
-            for(ListItem item : provisions) {
-                System.out.println(item.getName() + ": " + item.getNumber()); 
-            }
-        }
+        
         
         
         // display Provisions List
-        public void  displayProvisions() {
-            ArrayList<ListItem> provisionsList = game.getProvisions();
-            System.out.println("Provisions"); 
-            
-            provisionsList.forEach((item) -> {
-                System.out.println(item.getName() + ": " + item.getNumber());
-        });    
-            
-         
-        }
-         
+         public void displayProvisions() {
+            System.out.println("Provisions");
+            ArrayList<ListItem> provisions = GameControl.createProvisionsList();
+            provisions.forEach((item) -> {
+                System.out.println(item.getName()+ " " + item.getNumber());
+            });
+            }
 }
+            
+            
+            
+         
