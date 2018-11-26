@@ -163,4 +163,39 @@ public class GameControl {
             System.out.println(item.getName()+ " " + item.getNumber());
         });
     }
+    //create the list of provisions
+        public static void createProvisionsList() {
+            ArrayList<ListItem> provisions = new ArrayList<>();
+            
+            provisions.add(new ListItem("provision1", 15)); 
+            provisions.add(new ListItem("provision2", 25));
+            provisions.add(new ListItem("provision3", 30));
+            provisions.add(new ListItem("provision4", 27));
+            provisions.add(new ListItem("provision5", 32));
+            
+            game.setProvisions(provisions);
+        }
+        // method to display provisions list
+   
+        public static void showProvisionsList() {
+            System.out.println("Provisions"); 
+            ArrayList<ListItem> provisions = game.getProvisions();
+            for(ListItem item : provisions) {
+                System.out.println(item.getName() + ": " + item.getNumber()); 
+            }
+        }
+        
+        
+        // display Provisions List
+        public void  displayProvisions() {
+            ArrayList<ListItem> provisionsList = game.getProvisions();
+            System.out.println("Provisions"); 
+            
+            provisionsList.forEach((item) -> {
+                System.out.println(item.getName() + ": " + item.getNumber());
+        });    
+            
+         
+        }
+         
 }
