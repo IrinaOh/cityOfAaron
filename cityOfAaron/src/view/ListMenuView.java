@@ -72,7 +72,9 @@ public class ListMenuView extends MenuView {
     }
 
     public void listAnimals() {
-        System.out.println("List Animals Option Selected");
+        System.out.println("Show Animals Selected");
+        GameControl gca = new GameControl();
+        gca.displayAnimals();
     }
 
     public void listTools() {
