@@ -178,9 +178,7 @@ public class GameControl {
             return provisions;
            
         }
-        
-        
-        
+
         // display Provisions List
          public void displayProvisions() {
             System.out.println("Provisions");
@@ -189,6 +187,32 @@ public class GameControl {
                 System.out.println(item.getName()+ " " + item.getNumber());
             });
             }
+         
+        // Create the list of animals
+        public static ArrayList<ListItem> createAnimalsList(){ 
+            Game _game = CityOfAaron.getGame();
+            ArrayList<ListItem> animals = new ArrayList<>();
+            
+            animals.add(new ListItem("cows", 12));
+            animals.add(new ListItem("horses", 3));
+            animals.add(new ListItem("pigs", 7));
+            animals.add(new ListItem("goats", 4)); 
+            
+            // Save the tools in the game
+            _game.setAnimals(animals);
+            return animals;
+        }
+        
+        // Display Animals list
+        public void displayAnimals() {
+            System.out.println("List of Animals: ");
+            ArrayList<ListItem> animals = GameControl.createAnimalsList();
+            animals.forEach((item) -> {
+                System.out.println(item.getName()+ " " + item.getNumber());
+            });
+            }
+        
+  
 }
             
             
