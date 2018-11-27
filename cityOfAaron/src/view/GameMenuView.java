@@ -73,7 +73,7 @@ public class GameMenuView extends MenuView {
     
    
     public void viewMap() {
-        System.out.println("View Map Option Selected"); 
+        System.out.println("View Map Option Selected");
         GameControl theGameControl = new GameControl();
         theGameControl.displayMap(); 
     }
