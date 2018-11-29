@@ -12,6 +12,7 @@ package control;
  */
 import model.CropData;
 import java.util.Random;
+import exceptions.*;
 
 public class CropControl {
     //random number generator
@@ -124,29 +125,41 @@ public class CropControl {
         a = a + n
         pe = 10 * a
         */
-        
+       try {
+           int totalPrice = acresToBuy * landPrice;
+       
         
        // if acresToBuy < 0, return -1
-       if (acresToBuy < 0)
-           return -1;
+       if (acresToBuy < 0) {
+           throw new CropException("Cannot insert a negative value");
+       }
        // if wheatInStore < ( landPrice * acresToBuy), return -1
        int acresOwned = cropData.getAcresOwned();
-       if (acresToBuy * landPrice > acresOwned)
-           return -1;
+       if (acresToBuy * landPrice > acresOwned){
+           throw new CropException("Not enough wheat to buy land.");
+       }
        //If acresToBuy > 10*people, return -1
        int people = cropData.getPopulation();
-       if (acresToBuy > (10 * people))
-           return -1;
-       //acresOwned = acresOwned + acresToBuy
-       acresOwned += acresToBuy;
-       // wheatInStore = wheatInStore - (acresToBuy x landPrice)
-       int wheat = cropData.getWheatInStore();
-       wheat -= (acresToBuy * landPrice);
-       cropData.setWheatInStore(wheat);
-       // return acresOwned
-       return acresOwned;
-     }
+       if (acresToBuy > (10 * people)){
+           throw new CropException("Not enough people to tend the land.");
+       }
+       if (acresToBuy == 0) {return cropData.getAcresOwned();}
+       
+       else {
+           cropData.setAcresOwned(cropData.getAcresOwned() + acresToBuy);
+           
+           cropData.setWheatInStore(cropData.getWheatInStore() - totalPrice);
+           
+           return cropData.getAcresOwned();
+       }
+       }
+       catch (CropException e) {
+           System.out.println("No can do");
+           System.out.println(e.getMessage());
+       }
+        return 0;
     
+       
         /**
     * Method: feedPeople
     * Purpose: feed the people
@@ -167,7 +180,7 @@ public class CropControl {
         needs to have enought wheat.  If there is not enought wheat ws, then
         there will be an error.  The program must do the following calculations
         where wp equals wheat for people and ws equals wheat in store.
-        */   
+        */   }
      public static int feedPeople(int wheatInStore, CropData cropData){
     //if wheatForPeople < 0, return -1
     int wheatForPeople = cropData.getWheatForPeople();
