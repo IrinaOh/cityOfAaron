@@ -162,8 +162,13 @@ public class CropControl {
         needs to have enought wheat.  If there is not enought wheat ws, then
         there will be an error.  The program must do the following calculations
         where wp equals wheat for people and ws equals wheat in store.
-<<<<<<< HEAD
-        */   
+/**
+ * The CropControl class - part of the control layer
+ * class contains all of the calculation methods for managing the crops
+ * Author: <Justin Wakefield>
+ * Date last modified: October 25, 2018
+ */
+
      public static int feedPeople(int wheatInStore, CropData cropData){
     //if wheatForPeople < 0, return -1
     try {
@@ -183,11 +188,7 @@ public class CropControl {
     cropData.setWheatForPeople(wheatForPeople);
     //return wheatInStore
     return wheatInStore;
-
-        
-    
-    }
-    
+ }
     }
     catch (CropException e) {
         System.out.println("cannot do that.");
@@ -195,6 +196,7 @@ public class CropControl {
     }
         return 0;
      }
+     
     /**
      * The plantCrop method
      * Purpose: To crop wheat
@@ -226,8 +228,14 @@ public class CropControl {
         
         //return wheatInStore
         return wheatInStore;
-}    
+
+} 
 }
+
+
+        
+
+
 
     
         
@@ -235,4 +243,3 @@ public class CropControl {
     
     
             
-

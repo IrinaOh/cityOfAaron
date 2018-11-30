@@ -9,9 +9,7 @@ import model.*;
 import control.*;
 import java.util.Scanner;
 import cityofaaron.CityOfAaron;
-import exceptions.*;
 import exceptions.CropException;
-
 /**
  *
  * @author Justin Wakefield
