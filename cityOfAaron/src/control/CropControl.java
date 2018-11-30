@@ -83,18 +83,13 @@ public class CropControl {
             return -1;
         
         cropData.setOffering(offering);
-        return offering;                        
-        
+        return offering;                                
     }
        
-    
-
-    public static int calcLandPrice() {return 0;
-}
-        
-    
-
-    
+    public static int calcLandPrice() {
+        return 0;
+    }
+   
     /**
      * The buyLand method
      * Purpose: To buy land
@@ -110,7 +105,7 @@ public class CropControl {
      * @return 
      */
     
-    public static int buyLand(int landPrice, int acresToBuy, CropData cropData){
+    public static int buyLand(int landPrice, int acresToBuy, CropData cropData) throws CropException{
         /*
         Clearly define the problem the method is to solve 
         A bushel of wheat is the currency in our game.  The price of land is a 
@@ -125,41 +120,28 @@ public class CropControl {
         a = a + n
         pe = 10 * a
         */
-       try {
-           int totalPrice = acresToBuy * landPrice;
-       
-        
-       // if acresToBuy < 0, return -1
-       if (acresToBuy < 0) {
-           throw new CropException("Cannot insert a negative value");
-       }
-       // if wheatInStore < ( landPrice * acresToBuy), return -1
-       int acresOwned = cropData.getAcresOwned();
-       if (acresToBuy * landPrice > acresOwned){
-           throw new CropException("Not enough wheat to buy land.");
-       }
-       //If acresToBuy > 10*people, return -1
-       int people = cropData.getPopulation();
-       if (acresToBuy > (10 * people)){
-           throw new CropException("Not enough people to tend the land.");
-       }
-       if (acresToBuy == 0) {return cropData.getAcresOwned();}
-       
-       else {
-           cropData.setAcresOwned(cropData.getAcresOwned() + acresToBuy);
-           
-           cropData.setWheatInStore(cropData.getWheatInStore() - totalPrice);
-           
-           return cropData.getAcresOwned();
-       }
-       }
-       catch (CropException e) {
-           System.out.println("No can do");
-           System.out.println(e.getMessage());
-       }
-        return 0;
-    
-       
+        int totalPrice = acresToBuy * landPrice;       
+
+        // if acresToBuy < 0, return -1
+        if (acresToBuy < 0) {
+            throw new CropException("Cannot insert a negative value");
+        }
+        // if wheatInStore < ( landPrice * acresToBuy), return -1
+        int acresOwned = cropData.getAcresOwned();
+        if (acresToBuy * landPrice > acresOwned){
+            throw new CropException("Not enough wheat to buy land.");
+        }
+        //If acresToBuy > 10*people, return -1
+        int people = cropData.getPopulation();
+        if (acresToBuy > (10 * people)){
+            throw new CropException("Not enough people to tend the land.");
+        }
+        if (acresToBuy == 0) {return cropData.getAcresOwned();}
+
+        cropData.setAcresOwned(acresOwned + acresToBuy);
+        cropData.setWheatInStore(cropData.getWheatInStore() - totalPrice);
+        return cropData.getAcresOwned();
+    }   
         /**
     * Method: feedPeople
     * Purpose: feed the people
@@ -180,23 +162,22 @@ public class CropControl {
         needs to have enought wheat.  If there is not enought wheat ws, then
         there will be an error.  The program must do the following calculations
         where wp equals wheat for people and ws equals wheat in store.
-        */   }
-     public static int feedPeople(int wheatInStore, CropData cropData){
-    //if wheatForPeople < 0, return -1
-    int wheatForPeople = cropData.getWheatForPeople();
-    if (wheatForPeople < 0)
-        return -1;
-    // if wheatInStore < wheatForPeople return -1
-    if(wheatForPeople > wheatInStore)
-        return -1;
-    //wheatInStore = wheatInStore – wheatForPeople
-    wheatInStore -= wheatForPeople;
-    cropData.setWheatInStore(wheatInStore);
-    // wheatForPeople 
-    cropData.setWheatForPeople(wheatForPeople);
-    //return wheatInStore
-    return wheatInStore;
-    
+        */   
+    public static int feedPeople(int wheatInStore, CropData cropData){
+        //if wheatForPeople < 0, return -1
+        int wheatForPeople = cropData.getWheatForPeople();
+        if (wheatForPeople < 0)
+            return -1;
+        // if wheatInStore < wheatForPeople return -1
+        if(wheatForPeople > wheatInStore)
+            return -1;
+        //wheatInStore = wheatInStore – wheatForPeople
+        wheatInStore -= wheatForPeople;
+        cropData.setWheatInStore(wheatInStore);
+        // wheatForPeople 
+        cropData.setWheatForPeople(wheatForPeople);
+        //return wheatInStore
+        return wheatInStore;    
     }
     
     /**
@@ -230,9 +211,7 @@ public class CropControl {
         
         //return wheatInStore
         return wheatInStore;
-    }
-    
-    
+    }    
 }
     
         

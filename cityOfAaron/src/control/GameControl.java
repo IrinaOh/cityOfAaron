@@ -7,6 +7,7 @@ package control;
 import model.*;
 import cityofaaron.CityOfAaron;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 /**
@@ -138,7 +139,7 @@ public class GameControl {
                 String symbol = location.getSymbol();
                 System.out.println(symbol + " ");
             }  
-        }         
+        }  
     }
     
     // create the list of tools
