@@ -16,8 +16,7 @@ public class CropException extends Exception{
      * Parameters: none
      * Returns: none
      */  
-public CropException(){}
-    
+    public CropException(){}
     /**
      * Parameterized constructor
      * Purpose: Initializes data members to value passed as a parameter
@@ -25,8 +24,7 @@ public CropException(){}
      * Returns: none
      * @param string
      */  
-public CropException(String string) {
+    public CropException(String string){
         super(string); 
-    }
-   
+    }  
 }
