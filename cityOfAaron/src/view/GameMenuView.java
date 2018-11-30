@@ -5,6 +5,7 @@
  */
 package view;
 
+import control.CropControl;
 import control.GameControl;
 import java.util.Scanner;
 import model.*;
@@ -90,5 +91,11 @@ public class GameMenuView extends MenuView {
     
     public void manageCrops() {
         System.out.println("Manage Crops Option Selected");
+//        CropControl cc = new CropControl();
+//        int landPrice = control.CropControl.calcLandCost();
+//        String acresToBuy;
+//        System.out.println("Please type in how many acres you want to buy: ");
+//        acresToBuy = keyboard.next();
+        CropView.buyLandView();
     }
 }
