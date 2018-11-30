@@ -7,6 +7,7 @@ package control;
 import model.*;
 import cityofaaron.CityOfAaron;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 /**
@@ -37,6 +38,7 @@ public class GameControl {
         Map map = new Map();
         game.setMap(map);
         createMap();
+        createCropDataObject();
     }
     
     public static void createCropDataObject() {
@@ -138,7 +140,7 @@ public class GameControl {
                 String symbol = location.getSymbol();
                 System.out.println(symbol + " ");
             }  
-        }         
+        }  
     }
     
     // create the list of tools
