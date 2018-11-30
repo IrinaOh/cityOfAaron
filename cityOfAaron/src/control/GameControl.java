@@ -38,6 +38,7 @@ public class GameControl {
         Map map = new Map();
         game.setMap(map);
         createMap();
+        createCropDataObject();
     }
     
     public static void createCropDataObject() {
