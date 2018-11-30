@@ -5,6 +5,7 @@
  */
 package control;
 
+import exceptions.CropException;
 import model.CropData;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -49,7 +50,7 @@ public class CropControlTest {
      * Test of buyLand method, of class CropControl.
      */
     @Test
-    public void testBuyLand() {
+    public void testBuyLand() throws CropException {
         System.out.println("buyLand -Test Case 1");
         CropData cropData = new CropData();
         cropData.setAcresOwned(2000);
