@@ -61,23 +61,32 @@ public class CropView {
     }    
     
     public static void sellLandView() {
-        
         //Get cost of land this round
         int price = CropControl.calcLandCost();
-
         //prompt the user to enter the number of acres to buy
         System.out.format("Land is selling for %d bushels per acre.%n", price);
-        System.out.print("How many acres of land do you wish to sell?");
+        
+        boolean ok = true;
+        do {
+            try {
+                System.out.print("How many acres of land do you wish to sell?");
+                //Get the user's input and save it
+                int toSell;
+                toSell = keyboard.nextInt();
 
-        //Get the user's input and save it
-        int toSell;
-        toSell = keyboard.nextInt();
-
-        //call the sellLand() method in the control layer to sell the land
-        CropControl.sellLand(toSell, price, cropData);
-
-        //output how much land we now own
-        System.out.format("You now own %d acres of land.",cropData.getAcresOwned());
+                if (toSell < 0) {
+                    throw new CropException("Cannot Sell Negative Amount of Land");
+                }
+                
+                // actually sell the land
+                CropControl.sellLand(price, toSell, cropData);
+                ok =  false;
+            }
+            catch (CropException e) {
+                System.out.println(e.getMessage());
+                ok = true;
+            }
+        } while (ok); 
     }
     
     public static void feedPeopleView(CropData cropData) {

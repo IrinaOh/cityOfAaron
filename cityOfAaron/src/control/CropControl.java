@@ -36,6 +36,12 @@ public class CropControl {
     }
     
     /**
+     * Method: sellLand
+     * Purpose: to Sell Land
+     * @param landPrice
+     * @param acresToSell
+     * @param cropData
+     * @return cropData.getAcresOwned()
     * The sellLand method
     * Purpose: To sell land
     * parameters: the price of land, the number of acres to sell, and
@@ -46,25 +52,44 @@ public class CropControl {
     */
     public static int sellLand(int landPrice, int acresToSell, CropData cropData)
     {
+        try {
+        //acresOwned variable
+        int acresOwned = cropData.getAcresOwned();
+        
         //if acresToSell < 0, return -1
         if (acresToSell < 0)
-            return -1;
-        
-        //if acresToSell > acresOwned, return -1
-        int acresOwned = cropData.getAcresOwned();
+        //    return -1;
+            throw new CropException("A negative value was input."); 
+          
         if (acresToSell > acresOwned)
-            return -1;
-        //acresOwned = acresOwned - acresToSell
+        //    return -1;
+            throw new CropException("You don't own enough land to sell that amount."); 
+        
+        // if pre-conditions are met, this code block is executed
+        else {
+        
+        // acresOwned - acresToSell
         acresOwned -= acresToSell;
+        
+        // save the new acresOwned amount            
         cropData.setAcresOwned(acresOwned);
         
         //wheatInStore = wheatInStore + (acresToSell * landPrice)
         int wheatInStore = cropData.getWheatInStore();
         wheatInStore += (acresToSell * landPrice);
-        cropData.setWheatInStore(wheatInStore);
         
+        // save result to wheatInStore
+        cropData.setWheatInStore(wheatInStore);
+        }
+        // return acresOwned
+        return cropData.getAcresOwned(); 
+    }
+        catch (CropException e) {
+            System.out.println("I cannot do that Dave");
+            System.out.println(e.getMessage());
+        }
         //return acresOwned
-        return acresOwned;
+       return cropData.getAcresOwned(); 
     }
 
     /**
@@ -146,7 +171,6 @@ public class CropControl {
     * Method: feedPeople
     * Purpose: feed the people
     * @param wheatInStore
-    * @param wheatForPeople
     * @param cropData
     * @return CropData.wheatInStore
     * Pre-Conditions:

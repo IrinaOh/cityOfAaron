@@ -13,7 +13,7 @@ public class Map {
     private int rowCount; //stores the number of rows
     private int colCount; //stores the number of columns
     private Location[][]locations; //a reference to a 2-dimensional array
-                                    //of Location objects
+                                   //of Location objects
     
     /**
      * default Map constructor
@@ -33,11 +33,11 @@ public class Map {
     */
     public Map(int _rows, int _cols)
     {
-        rowCount = _rows;
-        colCount = _cols;
+        this.rowCount = _rows;
+        this.colCount = _cols;
         
         //create the array of location objects
-        locations = new Location[_rows][_cols];
+        this.locations = new Location[_rows][_cols];
     }
     
     public int getRowCount() {
@@ -58,7 +58,7 @@ public class Map {
      */
     public Location getLocation(int row, int col)
     {
-        return locations[row][col];        
+        return this.locations[row][col];        
     }
     /**
      * The setLocation method
@@ -71,6 +71,6 @@ public class Map {
      */
     public void setLocation (int row, int col, Location _location)
     {
-        locations[row][col] = _location;
+        this.locations[row][col] = _location;
     }
 }
