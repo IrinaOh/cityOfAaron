@@ -97,5 +97,6 @@ public class GameMenuView extends MenuView {
 //        System.out.println("Please type in how many acres you want to buy: ");
 //        acresToBuy = keyboard.next();
         CropView.buyLandView();
+        CropView.sellLandView();
     }
 }
