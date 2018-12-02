@@ -124,26 +124,33 @@ public class CropView {
         
     }
     
-    public static void plantCropsView(CropData cropData) {
+    public static void plantCropsView() {
         //get acres owned and wheat in store from player
         int acres = cropData.getAcresOwned();
         int wheat = cropData.getWheatInStore();
+        boolean paramsNotOkay;
         
-        //display acres and wheat to user
-        System.out.format("You own %d acres of land.%n", acres); 
-        System.out.format("There are %d bushels of wheat in store.%n", wheat);
-         
-        //ask user how many bushels of wheat to plant
-        System.out.print("How many acres would you like to plant?");
-         
-        //get user's input and save it
-        int landToPlant;
-        landToPlant = keyboard.nextInt();
-         
-        //plant crops
-    
-        CropControl.plantCrops(landToPlant, cropData);
-         
+        //ask how many acres to plant and catch exceptions       
+        do{
+            paramsNotOkay = false;
+            //ask user how many bushels of wheat to plant
+            System.out.println("\nHow many acres of land would you like to plant?");
+            //get user's input and save it
+            int landToPlant;
+            landToPlant = keyboard.nextInt();
+            try {
+                //call plantCrops method to plant crops
+                CropControl.plantCrops(landToPlant, cropData);
+            } catch (CropException e) {
+                System.out.println("I am sorry master, I cannot do this.");
+                System.out.println(e.getMessage());
+                paramsNotOkay = true;
+            }
+        }while(paramsNotOkay);
+        
+        //display acres and wheat to user 
+        System.out.format("\nYou now own %d bushels of wheat.", cropData.getWheatInStore());
+        System.out.format("\nYou have planted %d acres of land total.", cropData.getAcresPlanted());
     }
     
     public static void cropReportView(CropData cropData) {
@@ -170,14 +177,11 @@ public class CropView {
      * Parameters: none
      * Returns: none
      */
-    public static void runCropsView() {
-      
+    public static void runCropsView() {      
         cropReportView(cropData);
         buyLandView();
         sellLandView();
         feedPeopleView(cropData);
-        plantCropsView(cropData);
-        
-     
+        plantCropsView();     
     }
 }
