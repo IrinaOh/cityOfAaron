@@ -7,7 +7,8 @@ package control;
 import model.*;
 import cityofaaron.CityOfAaron;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.io.*;
+
 
 
 /**
@@ -40,6 +41,46 @@ public class GameControl {
         createMap();
         createCropDataObject();
     }
+    
+    /**
+         * the getSavedGame method
+         * Purpose: load a saved game from disk
+         * Parameters: the file path
+         * Returns: none
+         * @param filePath
+         */
+        public static void getSavedGame(String filePath) {
+            Game game = null;
+            
+            try (FileInputStream fips = new FileInputStream(filePath)) {
+                ObjectInputStream input = new ObjectInputStream(fips);
+                game = (Game) input.readObject();
+                CityOfAaron.setGame(game);
+            }
+            catch (Exception e) {
+                System.out.println("There was an error reading the saved game file \n");
+            }
+        }
+        
+         /**
+         * the saveGame method
+         * Purpose: save a game to the disk
+         * Parameters: game, 
+         * Returns: none
+         *  
+         */
+        public static void saveGame(Game game, String filePath) {
+                       
+            try (FileOutputStream fops = new FileOutputStream(filePath)) {
+                ObjectOutputStream output = new ObjectOutputStream(fops); 
+                output.writeObject(game);
+                CityOfAaron.setGame(game);
+                output.close();
+            }
+            catch(Exception e) {
+                System.out.println("There was an error saving the game.");
+            }
+        }
     
     public static void createCropDataObject() {
         CropData theCrops = new CropData();
