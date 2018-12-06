@@ -23,9 +23,6 @@ public class GameControl {
     private static Game game;
     private static Map map;
     
-    public static Game getGame(){
-        return game;
-    }
     public static void createNewGame(String _name)
     {        
         // create the game object
