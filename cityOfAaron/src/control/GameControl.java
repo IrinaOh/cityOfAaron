@@ -26,11 +26,6 @@ public class GameControl {
         return game;
     }
     
-    
-     public static Game getGame() {
-        return game;
-    }
-    
     public static void createNewGame(String _name)
     {        
         // create the game object
