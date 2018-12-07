@@ -9,7 +9,7 @@ import control.*;
 
 /**
  *
- * @author Justin Wakefield
+ * @author Robert Nebeker
  */
 public class SaveGameView extends MenuView{
     
