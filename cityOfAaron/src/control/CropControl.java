@@ -193,32 +193,31 @@ public class CropControl {
  * Date last modified: October 25, 2018
  */
 
-     public static int feedPeople(int wheatInStore, CropData cropData){
+     public static int feedPeople(int wheatInStore, CropData cropData) throws CropException {
     //if wheatForPeople < 0, return -1
-    try {
-    int wheatForPeople = cropData.getWheatForPeople();
-    if (wheatForPeople < 0) {
-        throw new CropException("Can't accept a negative value.");
-    }
-    // if wheatInStore < wheatForPeople return -1
-    if(wheatForPeople > wheatInStore){
-        throw new CropException("Not enough wheat.");
-    }
-    //wheatInStore = wheatInStore – wheatForPeople
-    if (wheatForPeople < wheatInStore){
-    wheatInStore -= wheatForPeople;
-    cropData.setWheatInStore(wheatInStore);
-    // wheatForPeople 
-    cropData.setWheatForPeople(wheatForPeople);
-    //return wheatInStore
-    return wheatInStore;
- }
-    }
-    catch (CropException e) {
-        System.out.println("cannot do that.");
-        System.out.println(e.getMessage());
-    }
-        return 0;
+        //try {
+            int wheatForPeople = cropData.getWheatForPeople();
+            if (wheatForPeople < 0) {
+                throw new CropException("Can't accept a negative value.");
+            }
+        // if wheatInStore < wheatForPeople return -1
+        if(wheatForPeople > wheatInStore){
+            throw new CropException("Not enough wheat.");
+        }
+        //wheatInStore = wheatInStore – wheatForPeople
+        if (wheatForPeople < wheatInStore){
+            throw new CropException("Not enough wheat.");
+        }
+         wheatInStore -= wheatForPeople;
+            cropData.setWheatInStore(wheatInStore);
+            // wheatForPeople 
+            cropData.setWheatForPeople(wheatForPeople);
+        //}
+        //catch (CropException e) {
+        //    System.out.println("cannot do that.");
+        //    System.out.println(e.getMessage());
+        //}
+        return wheatInStore;
      }
      
     /**
