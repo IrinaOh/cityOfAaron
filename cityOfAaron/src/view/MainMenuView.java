@@ -97,9 +97,23 @@ public class MainMenuView extends MenuView {
     * Returns: none
     */
     // ===================================
-    public void startSavedGame()
+    
+    public void startSavedGame() 
     {
-        System.out.println("\nStart where you left off.");
+        System.out.println("Start Saved Game option Selected");
+        Scanner input = new Scanner(System.in);    
+
+        // prompt user to get a file path
+        System.out.println("Enter name of previously saved game: ");
+        String fileName;
+        fileName = input.nextLine();
+        // call the getSavedGame() method in the GameControl class
+        GameControl gc = new GameControl();
+        gc.getSavedGame(fileName);
+        System.out.println("Your game " + fileName +  " has been restored");
+        // display the game menu for the loaded game
+        GameMenuView gm = new GameMenuView();
+        gm.displayMenu();
     }
     
     public void displayHelpMenuView()
@@ -110,7 +124,8 @@ public class MainMenuView extends MenuView {
     
     public void displaySaveGameView()
     {
-        System.out.println("save game");
+        SaveGameView sgv = new SaveGameView();
+        sgv.displayMenu();
     }
 
 }

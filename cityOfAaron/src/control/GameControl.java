@@ -22,6 +22,10 @@ public class GameControl {
     private static final int MAX_COL=5; 
     private static Game game;
     private static Map map;
+    public static Game getGame(){
+        return game;
+    }
+    
     
     public static void createNewGame(String _name)
     {        
@@ -52,7 +56,8 @@ public class GameControl {
         public static void getSavedGame(String filePath) {
             Game game = null;
             
-            try (FileInputStream fips = new FileInputStream(filePath)) {
+            try (FileInputStream fips = new FileInputStream(filePath)) 
+            {
                 ObjectInputStream input = new ObjectInputStream(fips);
                 game = (Game) input.readObject();
                 CityOfAaron.setGame(game);
