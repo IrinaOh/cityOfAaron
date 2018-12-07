@@ -95,6 +95,7 @@ public class GameMenuView extends MenuView {
         System.out.println("Manage Crops Option Selected");
         CropView.buyLandView();
         CropView.sellLandView();
+        CropView.feedPeopleView();
         CropView.plantCropsView();
     }
 }

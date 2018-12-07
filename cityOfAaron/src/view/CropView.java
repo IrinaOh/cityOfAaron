@@ -89,7 +89,7 @@ public class CropView {
         } while (ok); 
     }
     
-    public static void feedPeopleView(CropData cropData) {
+    public static void feedPeopleView() {
         //get amount of wheat in store
         int wheat = cropData.getWheatInStore();
         //display wheat in store to user
@@ -103,13 +103,13 @@ public class CropView {
                 //get input
                 int wheatForPeople = keyboard.nextInt(); 
                 
-                if (wheatForPeople < 0) {
-                    throw new CropException("Cannot Feed People. Negative amount of wheat");
-                }
-                
-                if (wheatForPeople > wheat) {
-                    throw new CropException("Not enough wheat to feed people.");
-                }
+                //if (wheatForPeople < 0) {
+//                    throw new CropException("Cannot Feed People. Negative amount of wheat");
+//                }
+//                
+//                if (wheatForPeople > wheat) {
+//                    throw new CropException("Not enough wheat to feed people.");
+//                }
                 //give to the people
                 CropControl.feedPeople(wheatForPeople, cropData);
                 ok = false;
@@ -181,7 +181,7 @@ public class CropView {
         cropReportView(cropData);
         buyLandView();
         sellLandView();
-        feedPeopleView(cropData);
+        feedPeopleView();
         plantCropsView();     
     }
 }
