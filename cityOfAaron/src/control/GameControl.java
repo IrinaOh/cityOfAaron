@@ -8,6 +8,7 @@ import model.*;
 import cityofaaron.CityOfAaron;
 import java.util.ArrayList;
 import java.io.*;
+import java.util.Scanner;
 
 
 
@@ -259,7 +260,40 @@ public class GameControl {
             });
             }
         
-  
+        //method to save the animals list to disk 
+        public static void saveAnimalList() {
+            Scanner keyboard = new Scanner(System.in);
+            //receive a string of the file name, passed into the printing routine.
+            String listPath;
+            System.out.println("Please enter a file path for the animals list: ");
+            listPath = keyboard.next();
+            
+            
+            //declare a reference to a PrintWriter object
+            try (PrintWriter out = new PrintWriter(listPath);) {
+                //create the PrintWriter object
+                
+                //get a reference to the ArrayList
+                ArrayList<ListItem> animals = Game.getAnimals();
+                
+                //output a heading for the report
+                out.println("\n\n Animals List      "); 
+                //use a for loop to get the data from the ArrayList
+                for (ListItem item : animals) {
+                out.printf("%n%-20s%7d", item.getName()
+                                             , item.getNumber());
+            
+                }
+                
+                //output it
+            }
+            catch(Exception e) {
+                //output error message
+                System.out.println("Error saving list to file.");
+            }
+            
+        } 
+        
 }
             
             
