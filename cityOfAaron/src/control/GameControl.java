@@ -249,13 +249,6 @@ public class GameControl {
             System.out.println("Error saving tools to file!");
             System.out.println("I/O Error:" + e.getMessage());
         }
-//        finally
-//        {
-//        // if(output != null) close the file
-//           if (out != null) {
-//                out.close();
-//            }
-//        }
 
     }
     //create the list of provisions
