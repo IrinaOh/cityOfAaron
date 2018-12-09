@@ -8,6 +8,9 @@ import model.*;
 import cityofaaron.CityOfAaron;
 import java.util.ArrayList;
 import java.io.*;
+import java.util.Scanner;
+import java.io.PrintWriter;
+import java.io.IOException;
 
 
 
@@ -52,39 +55,39 @@ public class GameControl {
          * Returns: none
          * @param filePath
          */
-        public static void getSavedGame(String filePath) {
-            Game game = null;
-            
-            try (FileInputStream fips = new FileInputStream(filePath)) 
-            {
-                ObjectInputStream input = new ObjectInputStream(fips);
-                game = (Game) input.readObject();
-                CityOfAaron.setGame(game);
-            }
-            catch (Exception e) {
-                System.out.println("There was an error reading the saved game file \n");
-            }
+    public static void getSavedGame(String filePath) {
+        Game game = null;
+
+        try (FileInputStream fips = new FileInputStream(filePath)) 
+        {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            game = (Game) input.readObject();
+            CityOfAaron.setGame(game);
         }
+        catch (Exception e) {
+            System.out.println("There was an error reading the saved game file \n");
+        }
+    }
         
-         /**
-         * the saveGame method
-         * Purpose: save a game to the disk
-         * Parameters: game, 
-         * Returns: none
-         *  
-         */
-        public static void saveGame(Game game, String filePath) {
-                       
-            try (FileOutputStream fops = new FileOutputStream(filePath)) {
-                ObjectOutputStream output = new ObjectOutputStream(fops); 
-                output.writeObject(game);
-                CityOfAaron.setGame(game);
-                output.close();
-            }
-            catch(Exception e) {
-                System.out.println("There was an error saving the game.");
-            }
+    /**
+    * the saveGame method
+    * Purpose: save a game to the disk
+    * Parameters: game, 
+    * Returns: none
+    *  
+    */
+    public static void saveGame(Game game, String filePath) {
+
+        try (FileOutputStream fops = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops); 
+            output.writeObject(game);
+            CityOfAaron.setGame(game);
+            output.close();
         }
+        catch(Exception e) {
+            System.out.println("There was an error saving the game.");
+        }
+    }
     
     public static void createCropDataObject() {
         CropData theCrops = new CropData();
@@ -105,11 +108,12 @@ public class GameControl {
         //save the cropData in the Game object            
         game.setCropData(theCrops);    
     }
-/**The createMap method
- * Purpose: creates the location objects and map
- * Parameters:none
- * Returns: none
- */
+    
+    /**The createMap method
+     * Purpose: creates the location objects and map
+     * Parameters:none
+     * Returns: none
+     */
     public static void createMap()
     {        
         Game game = CityOfAaron.getGame();
@@ -209,6 +213,50 @@ public class GameControl {
         tools.forEach((item) -> {
             System.out.println(item.getName()+ " " + item.getNumber());
         });
+    }
+        
+    public void printToolsReport() {
+        // Receive a string of the file name, passed into the printing routine.
+        System.out.println("Enter a filename to save the list.");
+        Scanner keyboard = new Scanner(System.in);
+        String fileLocation = keyboard.next();
+        // declare a reference to a PrintWriterobject
+        try (PrintWriter out = new PrintWriter(fileLocation))
+        {
+            // create the PrintWriterobject
+            // get a reference to the ArrayList you want to output
+            ArrayList<ListItem> tools = game.getTools();
+        
+            // output a heading for the report
+            out.println("\n\n      Tools Report              ");
+            out.printf("%n%-20s%10s", "Description", "Quantity");
+            out.printf("%n%-20s%10s", "-----------", "--------");
+        
+            // use a for loop to get the data from the ArrayList
+            tools.forEach((item) -> {
+                out.printf("%n%-20s%7d", item.getName(), item.getNumber());
+            });
+                
+            // and output it
+        
+            System.out.println("The file was sucessfully saved.");
+            
+            out.flush();
+        }
+        catch(Exception e)
+        {
+            // output error message
+            System.out.println("Error saving tools to file!");
+            System.out.println("I/O Error:" + e.getMessage());
+        }
+//        finally
+//        {
+//        // if(output != null) close the file
+//           if (out != null) {
+//                out.close();
+//            }
+//        }
+
     }
     //create the list of provisions
         public static ArrayList<ListItem> createProvisionsList() {

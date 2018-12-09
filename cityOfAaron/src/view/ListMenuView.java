@@ -30,10 +30,11 @@ public class ListMenuView extends MenuView {
             "**********************************\n" +
             " 1 - List the animals in the storehouse\n" +
             " 2 - List the tools in the storehouse\n" +
-            " 3 - List the provisions in the storehouse\n" +
-            " 4 - List the authors of this game\n" +
-            " 5 - Return to Game Menu\n",
-        5);
+            " 3 - Print the report of tools to a file\n" +
+            " 4 - List the provisions in the storehouse\n" +
+            " 5 - List the authors of this game\n" +
+            " 6 - Return to Game Menu\n",
+        6);
     }
     
         
@@ -57,16 +58,20 @@ public class ListMenuView extends MenuView {
             case 2: // view tools
                 listTools();
                 break;
-          
-            case 3: // list provisions
+            
+            case 3: 
+                printToolsReport();
+                break;                  
+                
+            case 4: // list provisions
                 listProvisions();
                 break;
           
-            case 4: // list authors
+            case 5: // list authors
                 listTeam();
                 break;
             
-            case 5: //return to game menu
+            case 6: //return to game menu
                 break;
         }
     }
@@ -80,6 +85,11 @@ public class ListMenuView extends MenuView {
     public void listTools() {
         GameControl gc = new GameControl();
         gc.displayTools();
+    }
+    
+    private void printToolsReport() {
+        GameControl gc = new GameControl();
+        gc.printToolsReport();
     }
     
     public void listProvisions() {
