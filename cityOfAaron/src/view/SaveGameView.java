@@ -12,8 +12,7 @@ import control.*;
  * @author Robert Nebeker
  */
 public class SaveGameView extends MenuView{
-    
-Scanner keyboard = new Scanner(System.in);
+    Scanner keyboard = new Scanner(System.in);
     
     /**
      * Constructor

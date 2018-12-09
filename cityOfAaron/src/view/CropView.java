@@ -103,13 +103,14 @@ public class CropView {
                 //get input
                 int wheatForPeople = keyboard.nextInt(); 
                 
-                //if (wheatForPeople < 0) {
-//                    throw new CropException("Cannot Feed People. Negative amount of wheat");
-//                }
-//                
-//                if (wheatForPeople > wheat) {
-//                    throw new CropException("Not enough wheat to feed people.");
-//                }
+                if (wheatForPeople < 0) {
+                    throw new CropException("Cannot Feed People Negative Amount of Wheat");
+                }
+                
+                if (wheatForPeople > wheat) {
+                    throw new CropException("Cannot Feed People More Wheat than Possessed");
+                }
+                
                 //give to the people
                 CropControl.feedPeople(wheatForPeople, cropData);
                 ok = false;
@@ -179,7 +180,9 @@ public class CropView {
      */
     public static void runCropsView() {      
         cropReportView(cropData);
+        // call buyLandView
         buyLandView();
+        // other cropView methods as they become relevant
         sellLandView();
         feedPeopleView();
         plantCropsView();     

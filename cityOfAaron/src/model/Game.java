@@ -14,6 +14,8 @@ import java.util.ArrayList;
  *
  * @author irina
  */
+
+// private variables
 public class Game implements Serializable{
     private Player player;
     private Game game;
@@ -22,19 +24,24 @@ public class Game implements Serializable{
     private ArrayList<ListItem> animals;
     private ArrayList<ListItem> tools;
     private ArrayList<ListItem> provisions;
-
+    
+    // default constructor 
+    public Game() {
+        this.provisions = new ArrayList<>();
+        this.tools = new ArrayList<>();
+        this.animals = new ArrayList<>();
+    }
+        
+    // variable constructor
     public Game(Player player, Game game, CropData cropData, ArrayList<ListItem> animals, ArrayList<ListItem> tools, ArrayList<ListItem> provisions) 
     {
         this.player = player;
         this.game = game;
         this.map = map;
         this.cropData = cropData;
-        this.animals = animals;
+        this.animals = new ArrayList<>();
         this.tools = tools;
         this.provisions = provisions;
-    }
-
-    public Game() {
     }
 
     public Player getPlayer() {
