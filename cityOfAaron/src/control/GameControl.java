@@ -301,38 +301,42 @@ public class GameControl {
             }
         
         //method to save the animals list to disk 
-        public static void saveAnimalList() {
-            Scanner keyboard = new Scanner(System.in);
-            //receive a string of the file name, passed into the printing routine.
-            String listPath;
-            System.out.println("Please enter a file path for the animals list: ");
-            listPath = keyboard.next();
-            
-            
-            //declare a reference to a PrintWriter object
-            try (PrintWriter out = new PrintWriter(listPath);) {
-                //create the PrintWriter object
+    public void printAnimalsReport() {
+        // Receive a string of the file name, passed into the printing routine.
+        System.out.println("Enter a filename to save the list.");
+        Scanner keyboard = new Scanner(System.in);
+        String fileLocation = keyboard.next();
+        // declare a reference to a PrintWriterobject
+        try (PrintWriter out = new PrintWriter(fileLocation))
+        {
+            // create the PrintWriterobject
+            // get a reference to the ArrayList you want to output
+            ArrayList<ListItem> animals = game.getAnimals();
+        
+            // output a heading for the report
+            out.println("\n\n      Animals Report              ");
+            out.printf("%n%-20s%10s", "Description", "Quantity");
+            out.printf("%n%-20s%10s", "-----------", "--------");
+        
+            // use a for loop to get the data from the ArrayList
+            animals.forEach((item) -> {
+                out.printf("%n%-20s%7d", item.getName(), item.getNumber());
+            });
                 
-                //get a reference to the ArrayList
-                ArrayList<ListItem> animals = game.getAnimals();
-                
-                //output a heading for the report
-                out.println("\n\n Animals List      "); 
-                //use a for loop to get the data from the ArrayList
-                for (ListItem item : animals) {
-                out.printf("%n%-20s%7d", item.getName()
-                                             , item.getNumber());
+            // and output it
+        
+            System.out.println("Your file was sucessfully saved.");
             
-                }
-                
-                //output it
-            }
-            catch(Exception e) {
-                //output error message
-                System.out.println("Error saving list to file.");
-            }
-            
-        } 
+            out.flush();
+        }
+        catch(Exception e)
+        {
+            // output error message
+            System.out.println("Error saving tools to file!");
+            System.out.println("I/O Error:" + e.getMessage());
+        }
+
+    }
         
 }
             
