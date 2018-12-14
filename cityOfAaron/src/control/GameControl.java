@@ -182,13 +182,15 @@ public class GameControl {
     }
         
     public void displayMap(){
+        Game game = CityOfAaron.getGame(); 
         Map map = game.getMap();
         for(int i = 0; i < MAX_ROW; i++){
             for(int j = 0; j < MAX_COL; j++){
                 Location location = map.getLocation(i,j);
                 String symbol = location.getSymbol();
-                System.out.println(symbol + " ");
+                System.out.print(symbol + " ");
             }  
+            System.out.println("");
         }  
     }
     
